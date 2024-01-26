@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Learn request response</h1>
+
+    <form action="save.php?id=123" method="post" enctype="multipart/form-data">
+      <div class="">
+        <label for="yourName">Your Name</label>
+        <input type="text" name="your_name" id="yourName" />
+      </div>
+
+      <br />
+
+      <div class="">
+        <label for="yourEmail">Your Email</label>
+        <input type="email" name="your_email" id="yourEmail" />
+      </div>
+
+      <br />
+
+      <div class="">
+        <label for="yourFile">Your File</label>
+        <input type="file" name="your_file" id="yourFile" />
+      </div>
+
+      <hr />
+
+      <button>Sent</button>
+    </form>
+
+    <script>
+      console.log("learn request response");
+    </script>
+  </body>
+</html>
