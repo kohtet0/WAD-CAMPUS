@@ -36,23 +36,28 @@
                     <div class=" py-2 bg-neutral-50 border w-96 rounded-lg px-3 flex flex-col items-end">
                         <h1 class=" text-xl font-medium font-mono text-neutral-600">Result...</h1>
                         <?php
-                        if (empty($_POST["width"] || empty($_POST["breadth"]))) {
-                            header("location:area.php");
-                        }
-                        $width = $_POST["width"];
-                        $breadth = $_POST["breadth"];
-                        $area = $width * $breadth;
-                        $fileName = "areaHistory.txt";
-                        if (!file_exists($fileName)) {
-                            touch($fileName);
-                        };
+                        if (isset($_POST["width"], $_POST["breadth"])) {
+                            if (empty($_POST["width"] || empty($_POST["breadth"]))) {
+                                header("location:area.php");
+                            }
+                            $width = $_POST["width"];
+                            $breadth = $_POST["breadth"];
+                            $area = $width * $breadth;
+                            $fileName = "areaHistory.txt";
+                            if (!file_exists($fileName)) {
+                                touch($fileName);
+                            };
 
-                        $fileStream = fopen($fileName, "a");
-                        fwrite($fileStream, "\n$width * $breadth = $area;");
-                        fclose($fileStream);
+                            $fileStream = fopen($fileName, "a");
+                            fwrite($fileStream, "\n$width * $breadth = $area;");
+                            fclose($fileStream);
+                        } else {
+                            echo "Please enter your exchange amount";
+                        }
+
                         ?>
                         <p class=" text-xl font-medium font-mono text-neutral-500">
-                            <?= $area ?> sqft
+                            <?php echo '<span>' . $area .' sqft</span>'; ?>
                         </p>
                     </div>
                     <div class="relative w-96">
