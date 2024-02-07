@@ -4,7 +4,8 @@ module.exports = {
   content: [
     "*.php",
     "node_modules/preline/dist/*.js",
-    "./src/**/*.{html,js}",
+    "./src/**/*.{html,js,php}",
+    "./src/*.php",
   ],
   theme: {
     extend: {},
